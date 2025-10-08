@@ -1,13 +1,11 @@
 package br.com.bank.service;
 
 import br.com.bank.entity.PixKey;
-import br.com.bank.entity.Transaction;
 import br.com.bank.util.TransactionTypeEnum;
 import br.com.bank.util.exception.PixKeyAlredyRegisteredException;
 import br.com.bank.util.exception.PixKeyNotFoundException;
 
 import java.math.BigDecimal;
-import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
