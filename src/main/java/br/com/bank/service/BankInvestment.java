@@ -1,10 +1,8 @@
 package br.com.bank.service;
 
 import br.com.bank.entity.Investment;
-import br.com.bank.entity.Transaction;
 import br.com.bank.util.InvestmentTypeEnum;
 import br.com.bank.util.TransactionTypeEnum;
-import br.com.bank.util.exception.AccountNumberNotFoundException;
 import br.com.bank.util.exception.SufficientBalanceNotFoundException;
 
 import java.math.BigDecimal;
@@ -29,7 +27,7 @@ public class BankInvestment {
         }
         acc.setBalance(acc.getBalance().subtract(amount));
         investments.add(new Investment(amount, OffsetDateTime.now(), type));
-        bankAccount.addTransaction(new Transaction(TransactionTypeEnum.INVESTMENT, amount, OffsetDateTime.now(), accountNumber));
+        bankAccount.addTransaction(TransactionTypeEnum.INVESTMENT, amount, accountNumber);
     }
 
     public List<Investment> listInvestments() {

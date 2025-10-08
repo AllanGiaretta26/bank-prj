@@ -132,7 +132,7 @@ public class Main {
             bankAccount.transfer(from, to, amount);
             System.out.println("Transferência com sucesso");
         }catch (Exception ex){
-            System.out.println("Valor invalido. Tente novamente " + ex.getMessage());
+            System.out.println("Valor invalido. Tente novamente: " + ex.getMessage());
         }
     }
 

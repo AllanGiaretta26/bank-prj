@@ -41,7 +41,7 @@ public class BankAccount {
         var acc = findByNumberOrThrow(number);
         validateAmount(amount);
         acc.setBalance(acc.getBalance().add(amount));
-        transactions.add(new Transaction(TransactionTypeEnum.DEPOSIT, amount, OffsetDateTime.now(), number));
+        addTransaction(TransactionTypeEnum.DEPOSIT, amount, number);
     }
 
     public void withdraw(String number, BigDecimal amount) {
@@ -51,7 +51,7 @@ public class BankAccount {
             throw new SufficientBalanceNotFoundException("Saldo insuficiente: " + number);
         }
         acc.setBalance(acc.getBalance().subtract(amount));
-        transactions.add(new Transaction(TransactionTypeEnum.WITHDRAW, amount, OffsetDateTime.now(), number));
+        addTransaction(TransactionTypeEnum.WITHDRAW, amount, number);
     }
 
     public void transfer(String from, String to, BigDecimal amount) {
@@ -63,12 +63,13 @@ public class BankAccount {
         }
         aFrom.setBalance(aFrom.getBalance().subtract(amount));
         aTo.setBalance(aTo.getBalance().add(amount));
-        transactions.add(new Transaction(TransactionTypeEnum.TRANSFER_SENT, amount, OffsetDateTime.now(), from));
-        transactions.add(new Transaction(TransactionTypeEnum.TRANSFER_RECEIVED, amount, OffsetDateTime.now(), to));
+        addTransaction(TransactionTypeEnum.TRANSFER_SENT, amount,from);
+        addTransaction(TransactionTypeEnum.TRANSFER_RECEIVED, amount,to);
     }
 
-    public void addTransaction(Transaction transaction) {
-        transactions.add(transaction);
+    public void addTransaction(TransactionTypeEnum type, BigDecimal amount, String accountNumber) {
+       var addTransaction = new Transaction(type, amount, OffsetDateTime.now(), accountNumber);
+       transactions.add(addTransaction);
     }
 
     public List<Transaction> listTransactions() {

@@ -1,13 +1,10 @@
 package br.com.bank.service;
 
-import br.com.bank.entity.Account;
 import br.com.bank.entity.PixKey;
 import br.com.bank.entity.Transaction;
 import br.com.bank.util.TransactionTypeEnum;
-import br.com.bank.util.exception.AccountNumberNotFoundException;
 import br.com.bank.util.exception.PixKeyAlredyRegisteredException;
 import br.com.bank.util.exception.PixKeyNotFoundException;
-import br.com.bank.util.exception.SufficientBalanceNotFoundException;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
@@ -39,8 +36,8 @@ public class BankPix {
         var to = bankAccount.findByNumberOrThrow(toAccount);
         from.setBalance(from.getBalance().subtract(amount));
         to.setBalance(to.getBalance().add(amount));
-        bankAccount.addTransaction(new Transaction(TransactionTypeEnum.PIX_SENT, amount, OffsetDateTime.now(), fromAccountNumber));
-        bankAccount.addTransaction(new Transaction(TransactionTypeEnum.PIX_RECEIVED, amount, OffsetDateTime.now(), toAccount));
+        bankAccount.addTransaction(TransactionTypeEnum.PIX_SENT, amount, fromAccountNumber);
+        bankAccount.addTransaction(TransactionTypeEnum.PIX_RECEIVED, amount, toAccount);
     }
 
     public List<PixKey> listPixKeys() {
