@@ -63,4 +63,3 @@ rc/
 Desenvolvido por Allan Giaretta
 
 📅 Versão inicial — Outubro/2025
-📧 (giarettaallan@gmail.com)
