@@ -61,5 +61,3 @@ rc/
 
 ## 🧑‍💻 Autor
 Desenvolvido por Allan Giaretta
-
-📅 Versão inicial — Outubro/2025
