@@ -3,7 +3,7 @@
 ![Java](https://img.shields.io/badge/Java-21-orange)
 ![Gradle](https://img.shields.io/badge/Gradle-8.x-02303A)
 ![Lombok](https://img.shields.io/badge/Lombok-1.18.42-bc4521)
-![Status](https://img.shields.io/badge/status-em%20desenvolvimento-yellow)
+![Status](https://img.shields.io/badge/status-conclu%C3%ADdo-brightgreen)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
 > Aplicação de console em Java que simula operações bancárias: contas, depósitos, transferências, PIX e investimentos.
@@ -16,7 +16,7 @@ A interação acontece via terminal, com menus que permitem ao usuário gerencia
 
 ## Status do Projeto
 
-🚧 Em desenvolvimento — funcionalidades principais implementadas, ajustes e novas features em andamento.
+✅ Concluído — todas as funcionalidades principais foram implementadas.
 
 ## Funcionalidades
 
